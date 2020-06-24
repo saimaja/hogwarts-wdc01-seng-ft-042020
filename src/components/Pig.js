@@ -3,24 +3,51 @@ import React from 'react'
 
 class Pig extends React.Component {
 
-    // getPigImg = () => {
-    //     let pigName = this.props.pig.name.toLowerCase()
-    //     pigName.replace((/" "/g, "_"))
-    //     return pigName +'.jpg'
-    // }
 
+    constructor(){
+        super()
+        this.state = {
+          toggle: false
+        }
+      }
+
+    toggleInfo = (e) => {
+        let currentToggle = this.state.toggle
+        this.setState({toggle: !currentToggle})
+    }
 
     render(){
         let pigName = this.props.pig.name.toLowerCase().replace(/ /g, "_")+'.jpg'
-        
-        
         let onePig = this.props.pig
+        // debugger
         return (
-            <div className='pigTile'>
+            <div onClick={this.toggleInfo} className='pigTile'>
+                {this.state.toggle
+                ?
+                <div>
+                <p>Weight: {onePig.weight}</p>
+                <p>Specialty: {onePig.specialty}</p>
+                <p>Medal: {onePig["highest medal achieved"]}</p>
+                </div>
+                :
+                <div>
                 <p>Name: {onePig.name}</p>
-                <img src ={require('../hog-imgs/'+pigName)}/>
-               
-
+                <img src={require('../hog-imgs/'+pigName)}/>
+                </div>
+                }
+                {/* {!this.state.toggle
+                ?
+                <div>
+                <p>Weight: {onePig.weight}</p>
+                <p>Specialty: {onePig.specialty}</p>
+                <p>Medal: {onePig["highest medal achieved"]}</p>
+                </div>
+                :
+                <div>
+                <p>Name: {onePig.name}</p>
+                <img src={require('../hog-imgs/'+pigName)}/>
+                </div>
+                } */}
             </div>
         )
     }

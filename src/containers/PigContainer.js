@@ -10,14 +10,11 @@ class PigContainer extends React.Component {
     return (
       <div >
         {this.props.pigs.map(pig => 
-        <Pig
-          pig={pig}
-          key={pig.id}
-
-
-           />
-          )}
-       
+          <Pig
+            pig={pig}
+            key={pig.id}
+          />
+        )}
       </div>
     );
   }
