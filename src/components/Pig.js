@@ -4,12 +4,8 @@ import React from 'react'
 class Pig extends React.Component {
 
 
-    constructor(){
-        super()
-        this.state = {
-          toggle: false
-        }
-      }
+    state = {toggle: false}
+      
 
     toggleInfo = (e) => {
         let currentToggle = this.state.toggle
@@ -25,6 +21,8 @@ class Pig extends React.Component {
                 {this.state.toggle
                 ?
                 <div>
+                <p>Name: {onePig.name}</p>
+                <img src={require('../hog-imgs/'+pigName)}/>
                 <p>Weight: {onePig.weight}</p>
                 <p>Specialty: {onePig.specialty}</p>
                 <p>Medal: {onePig["highest medal achieved"]}</p>
@@ -33,21 +31,9 @@ class Pig extends React.Component {
                 <div>
                 <p>Name: {onePig.name}</p>
                 <img src={require('../hog-imgs/'+pigName)}/>
-                </div>
+                </div>  
                 }
-                {/* {!this.state.toggle
-                ?
-                <div>
-                <p>Weight: {onePig.weight}</p>
-                <p>Specialty: {onePig.specialty}</p>
-                <p>Medal: {onePig["highest medal achieved"]}</p>
-                </div>
-                :
-                <div>
-                <p>Name: {onePig.name}</p>
-                <img src={require('../hog-imgs/'+pigName)}/>
-                </div>
-                } */}
+                
             </div>
         )
     }
